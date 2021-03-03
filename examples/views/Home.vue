@@ -1,0 +1,102 @@
+<template>
+  <div class="home">
+    <a-row>
+      <a-col :span="24">
+        <span class="row-label">button组件：</span>
+        <y-button>
+          123
+        </y-button>
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="24"
+             class="flex-row">
+        <span class="row-label"
+              style="padding-top:10px;">分页组件：</span>
+        <y-pagination :total="total"
+                      :page.sync="pages.page"
+                      :limit.sync="pages.limit" />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="24"
+             class="flex-row">
+        <span class="row-label">表格组件：</span>
+        <div style="width:80%;padding-top:10px;">
+          <table-demo />
+        </div>
+      </a-col>
+    </a-row>
+
+    <a-row style="padding-top:10px;">
+      <a-col :span="24"
+             class="flex-row">
+        <span class="row-label">tag标签组件：</span>
+
+        <y-linkTag :data="dataArr"
+                   v-model="linkTagValue"
+                   :selectType="1" />
+
+        选中值：{{ linkTagValue }}
+      </a-col>
+    </a-row>
+  </div>
+</template>
+
+<script>
+import tableDemo from "@/components/tableDemo";
+export default {
+  name: "Home",
+  components: { tableDemo },
+  data() {
+    return {
+      total: 100,
+      pages: {
+        page: 1,
+        limit: 10
+      },
+      dataArr: [
+        {
+          label: "CNware",
+          value: "1"
+        },
+        {
+          label: "CNwareKV",
+          value: "2"
+        },
+        {
+          label: "PowerVC",
+          value: "3"
+        },
+        {
+          label: "标签4",
+          value: "4"
+        },
+        {
+          label: "标签5",
+          value: "5"
+        }
+      ],
+      linkTagValue: "3,5"
+    };
+  }
+};
+</script>
+
+<style lang="less">
+.home {
+  padding-top: 10px;
+  padding-left: 100px;
+  text-align: left;
+  .flex-row {
+    display: flex;
+    align-items: center;
+  }
+  .row-label {
+    width: 120px;
+    display: inline-block;
+  }
+}
+</style>
