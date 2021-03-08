@@ -19,10 +19,24 @@
     <a-row>
       <a-col :span="24" class="flex-row">
         <span class="row-label" style="padding-top: 10px">分页组件：</span>
-        <y-pagination :total="total" :page.sync="pages.page" :limit.sync="pages.limit" />
+        <y-pagination :total="total" :page.sync="pages.page" :limit.sync="pages.limit" @pagination="paginationChange" />
       </a-col>
     </a-row>
     <a-divider />
+
+    <a-row style="padding-top: 10px">
+      <a-col :span="24" class="flex-row">
+        <span class="row-label">自定义表格组件：</span>
+        <div>
+          <y-table-box>
+            <template v-slot:button>button</template>
+            <template v-slot:table>table</template>
+          </y-table-box>
+        </div>
+      </a-col>
+    </a-row>
+    <a-divider />
+
     <a-row style="padding-top: 10px">
       <a-col :span="24" class="flex-row">
         <span class="row-label">tag标签组件：</span>
@@ -46,7 +60,7 @@
         <y-custom-tree />
       </a-col>
     </a-row>
-    <a-divider />
+
     <a-row style="padding-top: 10px">
       <a-col :span="24" class="flex-row">
         <span class="row-label">spin 全局组件：</span>
@@ -56,6 +70,15 @@
         </div>
       </a-col>
     </a-row>
+    <!-- <a-divider />
+    <a-row style="padding-top: 10px">
+      <a-col :span="24" class="flex-row">
+        <span class="row-label">自定义日期选择框面板组件：</span>
+        <div>
+          <y-custom-date-picker />
+        </div>
+      </a-col>
+    </a-row> -->
   </div>
 </template>
 
@@ -106,6 +129,9 @@ export default {
     },
     hide() {
       this.$YSpin.hide();
+    },
+    paginationChange(pages) {
+      this.pages = pages;
     },
   },
 };

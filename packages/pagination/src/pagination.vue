@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { scrollTo } from '../../../src/utils/scroll-to';
 export default {
   name: 'YPagination',
   props: {
@@ -31,12 +32,6 @@ export default {
     limit: {
       type: Number,
       default: 10,
-    },
-    pageSizes: {
-      type: Array,
-      default() {
-        return [10, 20, 30, 50];
-      },
     },
     autoScroll: {
       type: Boolean,
@@ -70,13 +65,13 @@ export default {
     handleSizeChange(current, size) {
       this.$emit('pagination', { page: current, limit: size });
       if (this.autoScroll) {
-        scroll(0, 800);
+        scrollTo(0, 800);
       }
     },
     handleCurrentChange(page, pageSize) {
       this.$emit('pagination', { page: page, limit: pageSize });
       if (this.autoScroll) {
-        scroll(0, 800);
+        scrollTo(0, 800);
       }
     },
   },

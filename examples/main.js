@@ -11,16 +11,17 @@ Vue.config.productionTip = false;
 
 import winhongcomponent from '../packages/index';
 Vue.use(winhongcomponent);
+
 // import YButton from '~/button/src/button.vue';
 // import YPagination from '~/pagination/src/pagination.vue';
 // import YButtonAction from '~/buttonAction/src/buttonAction.vue';
 // import YLinkTag from '~/linkTag/src/linkTag.vue';
-import YCustomTree from '~/customTree/src/customTree.vue';
+// import YCustomTree from '~/customTree/src/customTree.vue';
 // Vue.component('y-button', YButton);
 // Vue.component('y-pagination', YPagination);
 // Vue.component('y-button-action', YButtonAction);
 // Vue.component('y-link-tag', YLinkTag);
-Vue.component('y-custom-tree', YCustomTree);
+// Vue.component('y-custom-tree', YCustomTree);
 
 // import {
 //   Button

@@ -12,6 +12,8 @@ import ybuttonAction from './buttonAction';
 import ylinkTag from './linkTag';
 import yspin from './spin';
 import ycustomTree from './customTree';
+import ycustomDatePicker from './customDatePicker';
+import ytableBox from './tableBox';
 // ...如果还有的话继续添加
 const components = [
   yButton,
@@ -21,6 +23,8 @@ const components = [
   ylinkTag,
   yspin,
   ycustomTree,
+  ycustomDatePicker,
+  ytableBox,
   // ...如果还有的话继续添加
 ];
 

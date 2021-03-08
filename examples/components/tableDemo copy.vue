@@ -1,6 +1,6 @@
 <template>
-  <y-table-box>
-    <template v-slot:button>
+  <div class="y-common-table-contanier">
+    <div class="y-common-table-operator-group">
       <a-button type="primary" icon="play-circle"> 操作 </a-button>
       <a-button icon="poweroff"> 关机 </a-button>
       <a-button icon="loading"> 重启 </a-button>
@@ -15,38 +15,36 @@
           <a-icon type="down" />
         </a-button>
       </a-dropdown>
-    </template>
-    <template v-slot:table
-      ><a-table bordered :components="components" :columns="columns" :data-source="data" :pagination="false">
-        <a slot="name" slot-scope="text" class="y-button-link">{{ text }}</a>
-        <span slot="tags" slot-scope="tags">
-          <a-tag v-for="tag in tags" :key="tag" :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'">
-            {{ tag.toUpperCase() }}
-          </a-tag>
-        </span>
-        <template v-slot:action>
-          <div class="y-table-column-action-button">
-            <y-button-action text="新增" />
-            <span class="spacing"></span>
-            <y-button-action text="修改" />
-            <span class="spacing"></span>
-            <y-button-action text="复制" />
-            <span class="spacing"></span>
-            <y-button-action text="删除" />
-            <span class="spacing"></span>
-            <a-dropdown :trigger="['click']">
-              <y-button-action text="更多" />
-              <a-menu>
-                <a-menu-item>
-                  <a href="javascript:;">a</a>
-                </a-menu-item>
-              </a-menu>
-            </a-dropdown>
-          </div>
-        </template>
-      </a-table></template
-    >
-  </y-table-box>
+    </div>
+    <a-table bordered :components="components" :columns="columns" :data-source="data" :pagination="false">
+      <a slot="name" slot-scope="text" class="y-button-link">{{ text }}</a>
+      <span slot="tags" slot-scope="tags">
+        <a-tag v-for="tag in tags" :key="tag" :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'">
+          {{ tag.toUpperCase() }}
+        </a-tag>
+      </span>
+      <template v-slot:action>
+        <div class="y-table-column-action-button">
+          <y-button-action text="新增" />
+          <span class="spacing"></span>
+          <y-button-action text="修改" />
+          <span class="spacing"></span>
+          <y-button-action text="复制" />
+          <span class="spacing"></span>
+          <y-button-action text="删除" />
+          <span class="spacing"></span>
+          <a-dropdown :trigger="['click']">
+            <y-button-action text="更多" />
+            <a-menu>
+              <a-menu-item>
+                <a href="javascript:;">a</a>
+              </a-menu-item>
+            </a-menu>
+          </a-dropdown>
+        </div>
+      </template>
+    </a-table>
+  </div>
 </template>
 
 <script>
