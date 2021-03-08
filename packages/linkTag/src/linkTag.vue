@@ -1,16 +1,14 @@
 <template>
   <div class="y-link-tag">
     <ul class="y-link-tag-list">
-      <li class="y-tag-item"
-          v-for="(item, index) in options"
-          :key="item.value"
-          :class="item.checked ? 'activeClass' : ''"
-          @click="changeTags(index)">
-        <img src="@src/images/mark.png"
-             alt=""
-             srcset=""
-             class="y-link-tag-mark"
-             v-if="item.checked" />
+      <li
+        class="y-tag-item"
+        v-for="(item, index) in options"
+        :key="item.value"
+        :class="item.checked ? 'activeClass' : ''"
+        @click="changeTags(index)"
+      >
+        <img src="@src/images/mark.png" alt="" srcset="" class="y-link-tag-mark" v-if="item.checked" />
         <span>
           {{ item.label }}
         </span>
@@ -20,49 +18,49 @@
 </template>
 
 <script>
-import { oneOf } from "../../../src/utils/assist";
+import { oneOf } from '../../../src/utils/assist';
 export default {
-  name: "YLinkTag",
+  name: 'YLinkTag',
   model: {
-    prop: "value",
-    event: "update-value"
+    prop: 'value',
+    event: 'update-value',
   },
   props: {
     value: {
       type: String,
-      default: ""
+      default: '',
     },
     data: {
       type: Array,
       default() {
         return [];
-      }
+      },
     },
     type: {
       validator(value) {
-        return oneOf(value, ["default", "custom"]);
+        return oneOf(value, ['default', 'custom']);
       },
-      default: "default"
+      default: 'default',
     },
     closable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     selectType: {
       //1:多选 2:单选 默认为多选
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   data() {
     return {
-      options: this.data
+      options: this.data,
     };
   },
   computed: {
     myValue() {
-      return this.value ? this.value.split(",") : [];
-    }
+      return this.value ? this.value.split(',') : [];
+    },
   },
   created() {
     if (this.options.length > 0) {
@@ -92,23 +90,23 @@ export default {
         const obj = this.options[index];
         obj.checked = !obj.checked;
         this.$set(this.options, index, obj);
-        let valueString = "";
+        let valueString = '';
         if (this.options[index].checked === true) {
           // 点击选中
           this.myValue.push(this.options[index].value);
-          valueString = this.myValue.join(",");
-          this.$emit("update-value", valueString);
+          valueString = this.myValue.join(',');
+          this.$emit('update-value', valueString);
           return;
         }
         // 去掉选中
         const id = this.options[index].value;
         const indexId = this.myValue.indexOf(id);
         this.myValue.splice(indexId, 1);
-        valueString = this.myValue.join(",");
+        valueString = this.myValue.join(',');
         if (this.myValue.length === 0) {
-          valueString = "";
+          valueString = '';
         }
-        this.$emit("update-value", valueString);
+        this.$emit('update-value', valueString);
       }
       if (type === 2) {
         // 单选
@@ -123,13 +121,13 @@ export default {
         obj.checked = true;
         this.$set(this.options, index, obj);
         const valueString = this.options[index].value;
-        this.$emit("update-value", valueString);
+        this.$emit('update-value', valueString);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
-@import "~/src/styles/components/linkTag.less";
+@import '~/src/styles/components/linkTag.less';
 </style>

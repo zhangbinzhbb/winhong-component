@@ -1,13 +1,11 @@
 <template>
-  <div>
-
-  </div>
+  <div></div>
 </template>
 <script>
 export default {
-  name: "YCommon",
-}
+  name: 'YCommon',
+};
 </script>
 <style lang="less">
-@import "~/src/styles/common/index.less";
+@import '~/src/styles/common/index.less';
 </style>

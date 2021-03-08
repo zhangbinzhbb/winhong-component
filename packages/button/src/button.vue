@@ -1,13 +1,7 @@
 <template>
-  <button class="y-button"
-          :class="{ [`icon-${iconPosition}`]: true }"
-          @click="$emit('click')">
-    <g-icon class="icon"
-            v-if="icon && !loading"
-            :name="icon" />
-    <g-icon class="loading icon"
-            v-if="loading"
-            name="loading"></g-icon>
+  <button class="y-button" :class="{ [`icon-${iconPosition}`]: true }" @click="$emit('click')">
+    <g-icon class="icon" v-if="icon && !loading" :name="icon" />
+    <g-icon class="loading icon" v-if="loading" name="loading"></g-icon>
     <div class="y-button-content">
       <slot />
     </div>
@@ -21,28 +15,28 @@
  * @Last Modified time: 2021-02-24 17:23:33
  * 封装button
  */
-import Icon from "../../icon";
+import Icon from '../../icon';
 export default {
-  name: "YButton",
+  name: 'YButton',
   components: {
-    "g-icon": Icon
+    'g-icon': Icon,
   },
   props: {
     icon: {},
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     iconPosition: {
       type: String,
-      default: "left",
+      default: 'left',
       validator(value) {
-        return value === "left" || value === "right";
-      }
-    }
-  }
+        return value === 'left' || value === 'right';
+      },
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
-@import "~/src/styles/components/button.less";
+@import '~/src/styles/components/button.less';
 </style>

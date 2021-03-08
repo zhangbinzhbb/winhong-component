@@ -1,4 +1,4 @@
-import GlButtonAction from "./src/buttonAction";
+import GlButtonAction from './src/buttonAction';
 
 GlButtonAction.install = function(Vue) {
   Vue.component(GlButtonAction.name, GlButtonAction);
