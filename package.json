@@ -1,6 +1,6 @@
 {
   "name": "winhong-component",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "private": false,
   "description": "基于 vue-cli4 的组件库",
   "main": "lib/winhong-component.umd.min.js",
